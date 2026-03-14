@@ -19,19 +19,17 @@ export default function FavoritesPage() {
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="flex items-center justify-between mb-8">
-                <div>
-                    <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)]">
-                        {t('Favorites', 'المفضلة')}
-                    </h1>
-                    <p className="text-[var(--color-muted)] mt-1">
-                        {favorites.length} {t('saved destinations', 'وجهة محفوظة')}
-                    </p>
-                </div>
+            <div className="text-center mb-8">
+                <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)]">
+                    {t('Favorites', 'المفضلة')}
+                </h1>
+                <p className="text-[var(--color-muted)] mt-1">
+                    {favorites.length} {t('saved destinations', 'وجهة محفوظة')}
+                </p>
                 {favorites.length > 0 && (
                     <button
                         onClick={clearFavorites}
-                        className="text-sm text-[var(--color-muted)] hover:text-red-500 transition-colors"
+                        className="mt-3 text-sm text-[var(--color-muted)] hover:text-red-500 transition-colors  "
                     >
                         {t('Clear all', 'مسح الكل')}
                     </button>

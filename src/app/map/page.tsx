@@ -60,7 +60,7 @@ export default function MapPage() {
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="mb-6">
+            <div className="text-center mb-6">
                 <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)]">
                     {t('Map View', 'عرض الخريطة')}
                 </h1>
@@ -73,11 +73,11 @@ export default function MapPage() {
             </div>
 
             {/* Controls */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-4">
-                <div className="flex-1 max-w-md">
+            <div className="flex flex-col sm:flex-row gap-3 mb-4 items-center justify-center">
+                <div className="flex-1 max-w-md w-full">
                     <SearchBar value={search} onChange={setSearch} />
                 </div>
-                <div className="flex gap-2 overflow-x-auto pb-1">
+                <div className="flex gap-2 overflow-x-auto pb-1 justify-center">
                     <button
                         onClick={() => setSelectedCategory(null)}
                         className={`px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-colors ${!selectedCategory

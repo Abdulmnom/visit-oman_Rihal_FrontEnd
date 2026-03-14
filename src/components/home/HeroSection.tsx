@@ -26,7 +26,7 @@ export function HeroSection() {
 
             {/* Content */}
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-                <div className="max-w-3xl">
+                <div className="max-w-3xl mx-auto text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export function HeroSection() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.3 }}
-                        className="text-lg sm:text-xl text-white/70 leading-relaxed mb-8 max-w-xl"
+                        className="text-lg sm:text-xl text-white/70 leading-relaxed mb-8 max-w-xl mx-auto"
                     >
                         {t(
                             'From pristine beaches and towering mountains to ancient forts and vibrant souqs — plan your perfect journey across the Sultanate.',
@@ -68,7 +68,7 @@ export function HeroSection() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.45 }}
-                        className="flex flex-wrap gap-4"
+                        className="flex flex-wrap gap-4 justify-center"
                     >
                         <Link
                             href="/explore"

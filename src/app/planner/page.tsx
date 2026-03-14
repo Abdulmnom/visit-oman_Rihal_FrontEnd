@@ -45,20 +45,18 @@ export default function PlannerPage() {
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             {/* Header */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
-                <div>
-                    <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)]">
-                        {t('Travel Planner', 'مخطط الرحلة')}
-                    </h1>
-                    <input
-                        type="text"
-                        value={planner.title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        className="mt-1 text-lg text-[var(--color-muted)] bg-transparent border-none outline-none focus:text-[var(--color-foreground)] w-full"
-                        placeholder={t('Trip name...', 'اسم الرحلة...')}
-                    />
-                </div>
-                <div className="flex gap-2">
+            <div className="text-center mb-8">
+                <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)]">
+                    {t('Travel Planner', 'مخطط الرحلة')}
+                </h1>
+                <input
+                    type="text"
+                    value={planner.title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    className="mt-1 text-lg text-[var(--color-muted)] bg-transparent border-none outline-none focus:text-[var(--color-foreground)] w-full text-center"
+                    placeholder={t('Trip name...', 'اسم الرحلة...')}
+                />
+                <div className="flex gap-2 justify-center mt-4">
                     <button
                         onClick={() => setShowAddPanel(!showAddPanel)}
                         className="px-4 py-2 bg-[var(--color-primary)] text-white rounded-xl text-sm font-medium flex items-center gap-1.5 hover:opacity-90 transition-opacity"

@@ -54,10 +54,8 @@ export function DestinationCard({ destination, index = 0 }: DestinationCardProps
 
                 {/* Price tag */}
                 <div className="absolute top-3 left-3 z-10">
-                    <span className={`px-2.5 py-1 rounded-full text-xs font-bold ${destination.ticket_cost_omr === 0
-                            ? 'bg-green-500/90 text-white'
-                            : 'bg-white/90 dark:bg-black/60 text-[var(--color-foreground)]'
-                        } backdrop-blur-sm`}>
+                    <span className={`price-badge ${destination.ticket_cost_omr === 0 ? 'price-badge-free' : 'price-badge-gold'}`}>
+                        <Ticket size={12} />
                         {formatPrice(destination.ticket_cost_omr)}
                     </span>
                 </div>

@@ -85,7 +85,7 @@ export function Footer() {
                 {/* Bottom */}
                 <div className="mt-10 pt-6 border-t border-[var(--color-border)] flex flex-col sm:flex-row items-center justify-between gap-4">
                     <p className="text-xs text-[var(--color-muted)]">
-                        © {new Date().getFullYear()} Visit Oman. {t('Built with', 'بُني بـ')}{' '}
+                        © {new Date().getFullYear()} Visit Oman. {t('Built with Abdulmomen Al-Brayky', 'بُني بـ عبدالمنعم البريكي')}{' '}
                         <Heart size={12} className="inline text-[var(--color-food)]" />{' '}
                         {t('for Rihal Academy', 'لأكاديمية رحال')}
                     </p>

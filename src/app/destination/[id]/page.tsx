@@ -95,8 +95,8 @@ export default function DestinationDetailPage() {
                     {/* Main Content */}
                     <div className="lg:col-span-2 space-y-6">
                         {/* Title Card */}
-                        <div className="rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] p-6">
-                            <div className="flex flex-wrap gap-2 mb-3">
+                        <div className="rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] p-6 text-center">
+                            <div className="flex flex-wrap gap-2 mb-3 justify-center">
                                 {destination.categories.map((cat) => (
                                     <CategoryBadge key={cat} category={cat} size="md" />
                                 ))}
@@ -107,7 +107,7 @@ export default function DestinationDetailPage() {
                             {language === 'en' && (
                                 <p className="text-lg text-[var(--color-muted)] mt-1">{destination.name.ar}</p>
                             )}
-                            <div className="flex items-center gap-2 mt-3 text-[var(--color-muted)]">
+                            <div className="flex items-center gap-2 mt-3 text-[var(--color-muted)] justify-center">
                                 <MapPin size={16} />
                                 <span>{region}</span>
                             </div>
@@ -119,7 +119,8 @@ export default function DestinationDetailPage() {
                                 icon={<Ticket size={20} />}
                                 label={t('Ticket Price', 'سعر التذكرة')}
                                 value={formatPrice(destination.ticket_cost_omr)}
-                                color="var(--color-primary)"
+                                color="#D97706"
+                                isPrice
                             />
                             <InfoCard
                                 icon={<Clock size={20} />}
@@ -153,8 +154,8 @@ export default function DestinationDetailPage() {
                                         <div
                                             key={month.value}
                                             className={`text-center py-2.5 rounded-xl text-sm font-medium transition-colors ${isRecommended
-                                                    ? 'bg-[var(--color-primary)] text-white'
-                                                    : 'bg-[var(--color-surface-hover)] text-[var(--color-muted)]'
+                                                ? 'bg-[var(--color-primary)] text-white'
+                                                : 'bg-[var(--color-surface-hover)] text-[var(--color-muted)]'
                                                 }`}
                                         >
                                             {month.short}
@@ -204,7 +205,7 @@ export default function DestinationDetailPage() {
                                         <button
                                             key={day.id}
                                             onClick={() => addItemToDay(day.id, destination)}
-                                            className="w-full flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium bg-[var(--color-surface-hover)] text-[var(--color-foreground)] hover:bg-[var(--color-primary)] hover:text-white transition-colors"
+                                            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-[var(--color-primary)] to-[#0E7C6B] text-white hover:shadow-lg hover:shadow-[var(--color-primary)]/20 hover:scale-[1.02] transition-all"
                                         >
                                             <Plus size={16} />
                                             {t(`Add to ${day.label}`, `أضف إلى ${day.label}`)}
@@ -234,7 +235,7 @@ export default function DestinationDetailPage() {
                                 </li>
                                 <li className="flex justify-between">
                                     <span className="text-[var(--color-muted)]">{t('Cost', 'التكلفة')}</span>
-                                    <span className="font-medium">{formatPrice(destination.ticket_cost_omr)}</span>
+                                    <span className="font-bold price-display">{formatPrice(destination.ticket_cost_omr)}</span>
                                 </li>
                                 <li className="flex justify-between">
                                     <span className="text-[var(--color-muted)]">{t('Duration', 'المدة')}</span>
@@ -253,8 +254,8 @@ export default function DestinationDetailPage() {
 
                 {/* Nearby Destinations */}
                 {nearby.length > 0 && (
-                    <div className="mt-16">
-                        <h2 className="text-2xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)] mb-6">
+                    <div className="mt-20">
+                        <h2 className="text-2xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)] mb-6 text-center">
                             {t('Nearby Destinations', 'وجهات قريبة')}
                         </h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -275,20 +276,22 @@ function InfoCard({
     value,
     color,
     small = false,
+    isPrice = false,
 }: {
     icon: React.ReactNode;
     label: string;
     value: string;
     color: string;
     small?: boolean;
+    isPrice?: boolean;
 }) {
     return (
-        <div className="rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] p-4">
-            <div className="w-8 h-8 rounded-lg mb-2 flex items-center justify-center" style={{ backgroundColor: `${color}15`, color }}>
+        <div className="rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] p-4 text-center">
+            <div className="w-10 h-10 rounded-xl mb-2 flex items-center justify-center mx-auto" style={{ backgroundColor: `${color}15`, color }}>
                 {icon}
             </div>
             <div className="text-sm text-[var(--color-muted)]">{label}</div>
-            <div className={`font-bold text-[var(--color-foreground)] ${small ? 'text-xs' : 'text-lg'} mt-0.5 line-clamp-2`}>
+            <div className={`font-bold ${isPrice ? 'price-display text-xl' : `text-[var(--color-foreground)] ${small ? 'text-xs' : 'text-lg'}`} mt-0.5 line-clamp-2`}>
                 {value}
             </div>
         </div>

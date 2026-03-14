@@ -59,16 +59,18 @@ export default function RegionPage() {
                     >
                         <ArrowLeft size={20} />
                     </Link>
-                    <div className="flex items-center gap-2 text-white/70 text-sm mb-2">
-                        <MapPin size={14} />
-                        {t('Region', 'المنطقة')}
+                    <div className="text-center">
+                        <div className="flex items-center gap-2 text-white/70 text-sm mb-2 justify-center">
+                            <MapPin size={14} />
+                            {t('Region', 'المنطقة')}
+                        </div>
+                        <h1 className="text-4xl sm:text-5xl font-bold text-white font-[family-name:var(--font-heading)]">
+                            {regionName}
+                        </h1>
+                        <p className="text-white/70 mt-1">
+                            {destinations.length} {t('destinations', 'وجهة')}
+                        </p>
                     </div>
-                    <h1 className="text-4xl sm:text-5xl font-bold text-white font-[family-name:var(--font-heading)]">
-                        {regionName}
-                    </h1>
-                    <p className="text-white/70 mt-1">
-                        {destinations.length} {t('destinations', 'وجهة')}
-                    </p>
                 </div>
             </div>
 
@@ -82,7 +84,7 @@ export default function RegionPage() {
                 </div>
 
                 {/* Category chips */}
-                <div className="flex flex-wrap gap-2 mb-8">
+                <div className="flex flex-wrap gap-2 mb-8 justify-center">
                     {Object.entries(catCounts).sort((a, b) => b[1] - a[1]).map(([cat, count]) => {
                         const info = CATEGORIES.find((c) => c.value === cat);
                         return (
