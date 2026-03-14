@@ -76,7 +76,7 @@ export default function RegionPage() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Stats */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 mb-14">
                     <StatCard label={t('Total', 'الإجمالي')} value={destinations.length.toString()} />
                     <StatCard label={t('Free', 'مجاني')} value={freeCount.toString()} />
                     <StatCard label={t('Avg Price', 'متوسط السعر')} value={formatPrice(avgCost)} />
@@ -84,7 +84,7 @@ export default function RegionPage() {
                 </div>
 
                 {/* Category chips */}
-                <div className="flex flex-wrap gap-2 mb-8 justify-center">
+                <div className="flex flex-wrap gap-3 mb-12 justify-center">
                     {Object.entries(catCounts).sort((a, b) => b[1] - a[1]).map(([cat, count]) => {
                         const info = CATEGORIES.find((c) => c.value === cat);
                         return (
@@ -96,7 +96,7 @@ export default function RegionPage() {
                 </div>
 
                 {/* Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {destinations.map((dest, i) => (
                         <DestinationCard key={dest.id} destination={dest} index={i} />
                     ))}

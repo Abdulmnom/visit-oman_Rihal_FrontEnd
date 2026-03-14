@@ -78,42 +78,41 @@ export function FilterPanel({
     };
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-8">
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                     <SlidersHorizontal size={18} className="text-[var(--color-primary)]" />
-                    <h3 className="font-semibold text-[var(--color-foreground)] font-[family-name:var(--font-heading)]">
+                    <h3 className="font-semibold text-lg text-[var(--color-foreground)] font-[family-name:var(--font-heading)]">
                         {t('Filters', 'التصفية')}
                     </h3>
                 </div>
                 {hasFilters && (
                     <button
                         onClick={onClear}
-                        className="text-xs text-[var(--color-primary)] hover:underline flex items-center gap-1"
+                        className="text-sm text-[var(--color-primary)] hover:underline flex items-center gap-1 px-3 py-1.5 rounded-lg hover:bg-[var(--color-primary)]/10 transition-colors"
                     >
-                        <X size={12} />
+                        <X size={14} />
                         {t('Clear all', 'مسح الكل')}
                     </button>
                 )}
             </div>
 
             {/* Results count */}
-            <div className="text-sm text-[var(--color-muted)]">
-                {totalResults} {t('destinations found', 'وجهة موجودة')}
+            <div className="text-sm text-[var(--color-muted)] font-medium bg-[var(--color-surface-hover)] px-4 py-2.5 rounded-xl">
+                🎯 {totalResults} {t('destinations found', 'وجهة موجودة')}
             </div>
 
+            <div className="gradient-separator" />
+
             {/* Category Filter */}
-            <FilterSection title={t('Category', 'الفئة')}>
-                <div className="flex flex-wrap gap-2">
+            <FilterSection title={t('Category', 'الفئة')} icon="📂">
+                <div className="flex flex-wrap gap-3">
                     {CATEGORIES.map((cat) => (
                         <button
                             key={cat.value}
                             onClick={() => toggleCategory(cat.value)}
-                            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${categories.includes(cat.value)
-                                    ? 'bg-[var(--color-primary)] text-white shadow-sm'
-                                    : 'bg-[var(--color-surface-hover)] text-[var(--color-muted)] hover:text-[var(--color-foreground)]'
-                                }`}
+                            className={`chip-button ${categories.includes(cat.value) ? 'active' : ''}`}
                         >
                             {cat.icon} {language === 'ar' ? cat.labelAr : cat.label}
                         </button>
@@ -122,16 +121,13 @@ export function FilterPanel({
             </FilterSection>
 
             {/* Region Filter */}
-            <FilterSection title={t('Region', 'المنطقة')}>
-                <div className="flex flex-wrap gap-2">
+            <FilterSection title={t('Region', 'المنطقة')} icon="📍">
+                <div className="flex flex-wrap gap-3">
                     {REGIONS.map((region) => (
                         <button
                             key={region.value}
                             onClick={() => toggleRegion(region.value)}
-                            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${regions.includes(region.value)
-                                    ? 'bg-[var(--color-primary)] text-white shadow-sm'
-                                    : 'bg-[var(--color-surface-hover)] text-[var(--color-muted)] hover:text-[var(--color-foreground)]'
-                                }`}
+                            className={`chip-button ${regions.includes(region.value) ? 'active' : ''}`}
                         >
                             {language === 'ar' ? region.labelAr : region.label}
                         </button>
@@ -140,8 +136,8 @@ export function FilterPanel({
             </FilterSection>
 
             {/* Price Range */}
-            <FilterSection title={t('Ticket Price (OMR)', 'سعر التذكرة (ر.ع)')}>
-                <div className="space-y-2">
+            <FilterSection title={t('Ticket Price (OMR)', 'سعر التذكرة (ر.ع)')} icon="🎫">
+                <div className="space-y-3">
                     <input
                         type="range"
                         min={0}
@@ -151,27 +147,24 @@ export function FilterPanel({
                         onChange={(e) => onPriceRangeChange([priceRange[0], parseFloat(e.target.value)])}
                         className="w-full"
                     />
-                    <div className="flex justify-between text-xs text-[var(--color-muted)]">
+                    <div className="flex justify-between text-sm text-[var(--color-muted)] font-medium">
                         <span>{t('Free', 'مجاني')}</span>
-                        <span>{priceRange[1]} OMR</span>
+                        <span className="font-bold text-[var(--color-foreground)]">{priceRange[1]} OMR</span>
                     </div>
                 </div>
             </FilterSection>
 
             {/* Crowd Level */}
-            <FilterSection title={t('Crowd Level', 'مستوى الازدحام')}>
-                <div className="flex flex-wrap gap-2">
+            <FilterSection title={t('Crowd Level', 'مستوى الازدحام')} icon="👥">
+                <div className="flex flex-wrap gap-3">
                     {CROWD_LEVELS.map((crowd) => (
                         <button
                             key={crowd.value}
                             onClick={() => toggleCrowdLevel(crowd.value)}
-                            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all flex items-center gap-1.5 ${crowdLevels.includes(crowd.value)
-                                    ? 'text-white shadow-sm'
-                                    : 'bg-[var(--color-surface-hover)] text-[var(--color-muted)] hover:text-[var(--color-foreground)]'
-                                }`}
+                            className={`chip-button ${crowdLevels.includes(crowd.value) ? '' : ''}`}
                             style={
                                 crowdLevels.includes(crowd.value)
-                                    ? { backgroundColor: crowd.color }
+                                    ? { backgroundColor: crowd.color, color: 'white', boxShadow: `0 2px 12px ${crowd.color}40`, transform: 'translateY(-1px)' }
                                     : undefined
                             }
                         >
@@ -182,16 +175,13 @@ export function FilterPanel({
             </FilterSection>
 
             {/* Month Filter */}
-            <FilterSection title={t('Recommended Month', 'الشهر الموصى به')}>
-                <div className="grid grid-cols-4 gap-1.5">
+            <FilterSection title={t('Recommended Month', 'الشهر الموصى به')} icon="📅">
+                <div className="grid grid-cols-4 gap-2.5">
                     {MONTHS.map((month) => (
                         <button
                             key={month.value}
                             onClick={() => toggleMonth(month.value)}
-                            className={`px-2 py-1.5 rounded-lg text-xs font-medium transition-all ${months.includes(month.value)
-                                    ? 'bg-[var(--color-primary)] text-white shadow-sm'
-                                    : 'bg-[var(--color-surface-hover)] text-[var(--color-muted)] hover:text-[var(--color-foreground)]'
-                                }`}
+                            className={`chip-button justify-center ${months.includes(month.value) ? 'active' : ''}`}
                         >
                             {month.short}
                         </button>
@@ -204,14 +194,19 @@ export function FilterPanel({
 
 function FilterSection({
     title,
+    icon,
     children,
 }: {
     title: string;
+    icon?: string;
     children: React.ReactNode;
 }) {
     return (
-        <div>
-            <h4 className="text-sm font-medium text-[var(--color-foreground)] mb-2.5">{title}</h4>
+        <div className="filter-section-card">
+            <h4 className="text-sm font-bold text-[var(--color-foreground)] mb-4 flex items-center gap-2">
+                {icon && <span className="text-base">{icon}</span>}
+                {title}
+            </h4>
             {children}
         </div>
     );

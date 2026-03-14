@@ -45,8 +45,8 @@ export default function PlannerPage() {
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             {/* Header */}
-            <div className="text-center mb-8">
-                <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)]">
+            <div className="text-center mb-12 section-divider">
+                <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)] heading-accent">
                     {t('Travel Planner', 'مخطط الرحلة')}
                 </h1>
                 <input
@@ -117,7 +117,7 @@ export default function PlannerPage() {
             )}
 
             {/* Summary */}
-            <div className="grid grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-3 gap-5 mb-12">
                 <div className="rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] p-4 text-center">
                     <MapPin size={20} className="mx-auto mb-1 text-[var(--color-primary)]" />
                     <div className="text-2xl font-bold font-[family-name:var(--font-heading)]">{allItems.length}</div>
@@ -136,7 +136,7 @@ export default function PlannerPage() {
             </div>
 
             {/* Days */}
-            <div className="space-y-6">
+            <div className="space-y-8">
                 {planner.days.map((day, dayIndex) => {
                     const dayCost = calculateTotalCost(day.items.map((i) => i.destination));
                     const dayDuration = calculateTotalDuration(day.items.map((i) => i.destination));

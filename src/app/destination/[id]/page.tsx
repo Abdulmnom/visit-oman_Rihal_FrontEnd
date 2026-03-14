@@ -91,9 +91,9 @@ export default function DestinationDetailPage() {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-10 pb-16">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
                     {/* Main Content */}
-                    <div className="lg:col-span-2 space-y-6">
+                    <div className="lg:col-span-2 space-y-8">
                         {/* Title Card */}
                         <div className="rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] p-6 text-center">
                             <div className="flex flex-wrap gap-2 mb-3 justify-center">
@@ -114,7 +114,7 @@ export default function DestinationDetailPage() {
                         </div>
 
                         {/* Info Grid */}
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
                             <InfoCard
                                 icon={<Ticket size={20} />}
                                 label={t('Ticket Price', 'سعر التذكرة')}
@@ -188,7 +188,7 @@ export default function DestinationDetailPage() {
                     </div>
 
                     {/* Sidebar */}
-                    <div className="space-y-6">
+                    <div className="space-y-8">
                         {/* Add to Planner */}
                         <div className="rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] p-6 sticky top-24">
                             <h3 className="text-lg font-bold font-[family-name:var(--font-heading)] mb-4">
@@ -254,8 +254,8 @@ export default function DestinationDetailPage() {
 
                 {/* Nearby Destinations */}
                 {nearby.length > 0 && (
-                    <div className="mt-20">
-                        <h2 className="text-2xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)] mb-6 text-center">
+                    <div className="mt-24">
+                        <h2 className="text-2xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)] mb-8 text-center heading-accent">
                             {t('Nearby Destinations', 'وجهات قريبة')}
                         </h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">

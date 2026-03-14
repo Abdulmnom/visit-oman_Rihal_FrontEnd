@@ -19,8 +19,8 @@ export default function FavoritesPage() {
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="text-center mb-8">
-                <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)]">
+            <div className="text-center mb-12 section-divider">
+                <h1 className="text-3xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)] heading-accent">
                     {t('Favorites', 'المفضلة')}
                 </h1>
                 <p className="text-[var(--color-muted)] mt-1">
@@ -37,7 +37,7 @@ export default function FavoritesPage() {
             </div>
 
             {destinations.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {destinations.map((dest, i) => (
                         <DestinationCard key={dest!.id} destination={dest!} index={i} />
                     ))}

@@ -71,11 +71,11 @@ function ExploreContent() {
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             {/* Header */}
-            <div className="mb-8 text-center ">
-                <h1 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)]">
+            <div className="mb-12 text-center section-divider">
+                <h1 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)] heading-accent">
                     {t('Explore Destinations', 'استكشف الوجهات')}
                 </h1>
-                <p className="text-[var(--color-muted)] mt-2">
+                <p className="text-[var(--color-muted)] mt-4 text-lg">
                     {t(
                         'Discover your perfect destination in Oman',
                         'اكتشف وجهتك المثالية في عمان'
@@ -84,7 +84,7 @@ function ExploreContent() {
             </div>
 
             {/* Search + Sort + Filter Toggle */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-6">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <div className="flex-1">
                     <SearchBar value={search} onChange={setSearch} />
                 </div>
@@ -123,7 +123,7 @@ function ExploreContent() {
 
             {/* Collapsible Filter Panel (inline, below search) */}
             {showMobileFilters && (
-                <div className="rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] p-6 mb-6 animate-fade-in">
+                <div className="rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] p-8 mb-10 animate-fade-in shadow-sm">
                     <div className="flex items-center justify-between mb-4">
                         <h3 className="font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)]">
                             {t('Filters', 'التصفية')}
@@ -158,7 +158,7 @@ function ExploreContent() {
             {/* Results Grid - Full Width */}
             <div>
                 {filteredDestinations.length > 0 ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {filteredDestinations.map((dest, i) => (
                             <DestinationCard key={dest.id} destination={dest} index={i} />
                         ))}

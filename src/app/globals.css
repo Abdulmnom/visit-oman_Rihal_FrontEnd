@@ -364,3 +364,132 @@ input[type="range"]::-moz-range-thumb {
   border: 2px solid white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+/* ========================================
+   Section Spacing & Dividers
+   ======================================== */
+.section-divider {
+  position: relative;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.section-divider::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  opacity: 0.6;
+}
+
+.heading-accent {
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.heading-accent::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+}
+
+/* ========================================
+   Filter Section Cards
+   ======================================== */
+.filter-section-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.filter-section-card:hover {
+  border-left-color: var(--color-secondary);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+[dir="rtl"] .filter-section-card {
+  border-left: 1px solid var(--color-border);
+  border-right: 3px solid var(--color-primary);
+}
+
+[dir="rtl"] .filter-section-card:hover {
+  border-right-color: var(--color-secondary);
+}
+
+/* ========================================
+   Enhanced Chip Buttons
+   ======================================== */
+.chip-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  border: none;
+  background: var(--color-surface-hover);
+  color: var(--color-muted);
+}
+
+.chip-button:hover {
+  color: var(--color-foreground);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.chip-button.active {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: 0 2px 12px rgba(14, 124, 107, 0.3);
+  transform: translateY(-1px);
+}
+
+.chip-button.active:hover {
+  box-shadow: 0 4px 16px rgba(14, 124, 107, 0.4);
+}
+
+/* ========================================
+   Full-width Gradient Separator
+   ======================================== */
+.gradient-separator {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-border) 20%,
+    var(--color-primary) 50%,
+    var(--color-border) 80%,
+    transparent 100%
+  );
+  opacity: 0.5;
+  margin: 1.5rem 0;
+}
+
+/* ========================================
+   Page Section Wrapper
+   ======================================== */
+.page-section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.page-section + .page-section {
+  border-top: 1px solid var(--color-border);
+}

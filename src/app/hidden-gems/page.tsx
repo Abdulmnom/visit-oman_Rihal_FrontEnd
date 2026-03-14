@@ -12,12 +12,12 @@ export default function HiddenGemsPage() {
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="text-center mb-10">
+            <div className="text-center mb-14 section-divider">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-secondary)]/10 text-[var(--color-secondary)] text-sm mb-4">
                     <Gem size={16} />
                     {t('Low Crowds · High Beauty', 'أقل ازدحاماً · أكثر جمالاً')}
                 </div>
-                <h1 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)]">
+                <h1 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)] heading-accent">
                     {t('Hidden Gems', 'الجواهر المخفية')}
                 </h1>
                 <p className="text-[var(--color-muted)] mt-2 max-w-lg mx-auto">
@@ -32,7 +32,7 @@ export default function HiddenGemsPage() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {gems.map((dest, i) => (
                     <DestinationCard key={dest.id} destination={dest} index={i} />
                 ))}

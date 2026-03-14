@@ -21,12 +21,12 @@ export default function BestTimePage() {
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="text-center mb-10">
+            <div className="text-center mb-14 section-divider">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-sm mb-4">
                     <Calendar size={16} />
                     {t('Seasonal Recommendations', 'توصيات موسمية')}
                 </div>
-                <h1 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)]">
+                <h1 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-heading)] text-[var(--color-foreground)] heading-accent">
                     {t('Best Time to Visit', 'أفضل وقت للزيارة')}
                 </h1>
                 <p className="text-[var(--color-muted)] mt-2 max-w-lg mx-auto">
@@ -38,7 +38,7 @@ export default function BestTimePage() {
             </div>
 
             {/* Month Selector */}
-            <div className="flex justify-center gap-2 flex-wrap mb-10">
+            <div className="flex justify-center gap-3 flex-wrap mb-12">
                 {MONTHS.map((month) => (
                     <button
                         key={month.value}
@@ -54,7 +54,7 @@ export default function BestTimePage() {
             </div>
 
             {/* Selected Month Header */}
-            <div className="text-center mb-8">
+            <div className="text-center mb-10">
                 <h2 className="text-2xl font-bold font-[family-name:var(--font-heading)]">
                     {language === 'ar' ? monthInfo?.labelAr : monthInfo?.label}
                 </h2>
@@ -64,7 +64,7 @@ export default function BestTimePage() {
             </div>
 
             {/* Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {destinations.map((dest, i) => (
                     <DestinationCard key={dest.id} destination={dest} index={i} />
                 ))}

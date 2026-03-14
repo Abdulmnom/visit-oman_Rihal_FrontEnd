@@ -7,11 +7,11 @@ import { HiddenGemsPreview } from '@/components/home/HiddenGemsPreview';
 
 export default function HomePage() {
   return (
-    <>
+    <div className="space-y-16">
       <HeroSection />
       <AnimatedStats />
       <FeaturedCategories />
       <HiddenGemsPreview />
-    </>
+    </div>
   );
 }

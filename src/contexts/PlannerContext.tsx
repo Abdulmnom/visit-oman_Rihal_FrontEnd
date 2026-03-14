@@ -61,10 +61,21 @@ export function PlannerProvider({ children }: { children: ReactNode }) {
     }, []);
 
     const removeDay = useCallback((dayId: string) => {
-        setPlanner((prev) => ({
-            ...prev,
-            days: prev.days.filter((d) => d.id !== dayId),
-        }));
+        console.log('Attempting to remove day:', dayId);
+        let confirmed = false;
+        try {
+            confirmed = typeof window !== 'undefined' && window.confirm('Are you sure you want to remove this day?');
+        } catch (e) {
+            console.error('Confirm failed:', e);
+            confirmed = true; // Fallback to delete if confirm fails
+        }
+        
+        if (confirmed) {
+            setPlanner((prev) => ({
+                ...prev,
+                days: prev.days.filter((d) => d.id !== dayId),
+            }));
+        }
     }, []);
 
     const addItemToDay = useCallback((dayId: string, destination: Destination) => {
@@ -122,7 +133,26 @@ export function PlannerProvider({ children }: { children: ReactNode }) {
     }, []);
 
     const clearPlanner = useCallback(() => {
-        setPlanner(DEFAULT_PLANNER);
+        console.log('Attempting to clear planner');
+        let confirmed = false;
+        try {
+            confirmed = typeof window !== 'undefined' && window.confirm('Are you sure you want to clear the entire planner?');
+        } catch (e) {
+            console.error('Confirm failed:', e);
+            confirmed = true; // Fallback to clear if confirm fails
+        }
+
+        if (confirmed) {
+            // Use a fresh copy of the default planner with new day IDs to ensure React re-renders
+            setPlanner({
+                ...DEFAULT_PLANNER,
+                days: DEFAULT_PLANNER.days.map((d) => ({
+                    ...d,
+                    id: generateId(), // Fresh IDs
+                    items: [],
+                })),
+            });
+        }
     }, []);
 
     const setTitle = useCallback((title: string) => {
